@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f5f7fa; /* Light grey background - Tailwind bg-gray-100 is similar #f3f4f6 */
+    color: #333; /* Default text color - Tailwind text-gray-800 is similar #1f2937 */
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* General Link Styling - Base, can be overridden by Tailwind */
+a {
+    /* color: #0056b3; */ /* Let Tailwind control link colors primarily */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    /* text-decoration: underline; */ /* Let Tailwind control this */
+}
+
+/* Header Styles - Keep minimal, Tailwind will primarily style in header.php */
+header.main-header {
+    /* background-color: #0056b3; */ /* Controlled by Tailwind */
+    /* color: white; */ /* Controlled by Tailwind */
+    padding: 1rem 0; /* Tailwind py-4 or similar */
+    /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */ /* Controlled by Tailwind */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%; /* Ensure header spans full width */
+}
+
+/* These might be overridden by Tailwind flex utilities in header.php */
+header.main-header nav ul {
+    list-style: none;
+    /* display: flex; */ /* Controlled by Tailwind */
+    /* justify-content: center; */ /* Controlled by Tailwind */
+    /* gap: 30px; */ /* Controlled by Tailwind */
+    padding: 0;
+    margin: 0;
+}
+
+header.main-header nav a {
+    /* color: white; */ /* Controlled by Tailwind */
+    text-decoration: none;
+    /* font-size: 18px; */ /* Tailwind text-lg */
+    transition: color 0.3s ease;
+    /* padding-bottom: 5px; */ /* For border, adapt with Tailwind if needed */
+}
+
+header.main-header nav a:hover {
+    /* color: #ffd700; */ /* Controlled by Tailwind or specific classes */
+    text-decoration: none;
+}
+
+header.main-header nav .active {
+    /* border-bottom: 2px solid #ffd700; */ /* Adapt for light header or use different style */
+    /* color: #ffd700; */ /* Adapt for light header */
+    font-weight: 600; /* Example for active link on light bg */
+    color: #1D4ED8; /* Example: Tailwind blue-700 for active link */
+}
+
+.badge {
+    background: red; /* Tailwind bg-red-500 or bg-red-600 */
+    color: white;
+    padding: 3px 8px;
+    border-radius: 10px; /* Tailwind rounded-full or similar */
+    font-size: 0.8em; /* Tailwind text-xs or text-sm */
+    vertical-align: top;
+    margin-left: 5px;
+}
+
+/* Main Content Area - Basic padding, Tailwind will handle more specific layout */
+main {
+    padding: 20px; /* Tailwind p-5 or similar */
+    /* margin-top: 20px; /* This might interfere with sticky header calculations if not careful, let Tailwind handle spacing */
+}
+
+/* Alert Message Styling (can be used with Tailwind) */
+.alert {
+    padding: 1rem; /* Tailwind p-4 */
+    margin-bottom: 1rem; /* Tailwind mb-4 */
+    border: 1px solid transparent;
+    border-radius: 0.375rem; /* Tailwind rounded-md */
+}
+
+.alert-success {
+    color: #0f5132; /* Tailwind text-green-800 */
+    background-color: #d1e7dd; /* Tailwind bg-green-100 */
+    border-color: #badbcc; /* Tailwind border-green-300 */
+}
+
+.alert-danger {
+    color: #842029; /* Tailwind text-red-800 */
+    background-color: #f8d7da; /* Tailwind bg-red-100 */
+    border-color: #f5c2c7; /* Tailwind border-red-300 */
+}
+
+.alert-info {
+    color: #0c5460; /* Tailwind text-blue-800 */
+    background-color: #d1ecf1; /* Tailwind bg-blue-100 */
+    border-color: #bee5eb; /* Tailwind border-blue-300 */
+}
+
+.alert-warning {
+    color: #856404; /* Tailwind text-yellow-800 */
+    background-color: #fff3cd; /* Tailwind bg-yellow-100 */
+    border-color: #ffeeba; /* Tailwind border-yellow-300 */
+}
+
+
+/* Commenting out .form-container, .form-group, .btn, .card styles as Tailwind will be primary */
+/*
+.form-container {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.form-container h1, .form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="date"],
+.form-group input[type="number"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus,
+.form-group input[type="date"]:focus,
+.form-group input[type="number"]:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #0056b3;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.2);
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    background-color: #0056b3;
+    color: white;
+    border-color: #0056b3;
+}
+
+.btn-primary:hover {
+    background-color: #004080;
+    border-color: #004080;
+    color: white;
+    text-decoration: none;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+    color: white;
+    text-decoration: none;
+}
+
+.btn-full-width {
+    width: 100%;
+    display: block;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card-title {
+    font-size: 1.5rem; 
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #0056b3;
+}
+
+.card-subtitle {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.card-actions {
+    margin-top: 15px;
+    text-align: right;
+}
+*/
+
+/* Utility Classes - Keep simple ones, Tailwind has more comprehensive utilities */
+.text-center {
+    text-align: center;
+}
+.mb-1 { margin-bottom: 0.25rem; } /* Tailwind: mb-1 */
+.mb-2 { margin-bottom: 0.5rem; } /* Tailwind: mb-2 */
+.mb-3 { margin-bottom: 1rem; }   /* Tailwind: mb-4 */
+.mt-1 { margin-top: 0.25rem; }  /* Tailwind: mt-1 */
+.mt-2 { margin-top: 0.5rem; }  /* Tailwind: mt-2 */
+.mt-3 { margin-top: 1rem; }    /* Tailwind: mt-4 */
+
+
+/* Responsive container - Tailwind's `container` class is more robust with configurable breakpoints */
+/* It's generally better to use Tailwind's container or define one that works with its system */
+/*
+.container {
+    width: 90%;
+    max-width: 1200px; 
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+@media (min-width: 576px) {
+    .container {
+        width: 90%;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 85%;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 80%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+*/
+
